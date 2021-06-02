@@ -1,13 +1,16 @@
-name: GitHub Actions Demo
-on: [push]
+name: GitHub Actions
+
+on:
+  - push
+  - pull_request
+
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies
         run: |
           pip install poetry
           make install
-      - name: Run linter and pytest
-        run: |
-          make check
+      - name: Run linter
+        run: make lint
