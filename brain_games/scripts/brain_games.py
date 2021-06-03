@@ -6,7 +6,7 @@ from brain_games.scripts import cli
 
 def main():
     """Make a user intreface."""
-    print('Welcome to the Brain Games!\n')
+    cli.greeting()
     cli.welcome_user()
 
 
