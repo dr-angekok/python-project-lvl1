@@ -14,6 +14,11 @@ def welcome_user():
     return name
 
 
-def greeting():
+def greeting_user():
     """Greeting user."""
-    print('Welcome to the Brain Games!\n')
+    print('Welcome to the Brain Games!')
+
+
+def instruct_user():
+    """Instruct the user about the rules of the game."""
+    print('Answer "yes" if the number is even, otherwise answer "no".')
