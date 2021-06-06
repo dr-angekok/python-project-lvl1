@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 """Even game programm."""
 
-from random import randrange
-
-from brain_games.scripts import cli
+from brain_games.scripts import cli, rnd_engine
 
 
 def is_even(number):
@@ -46,18 +44,12 @@ def translate_bool(state):
 
 def main():
     """Make a user intreface."""
-    try_count = 3
-    random_numbers = []
-    for _ in range(try_count):
-        random_numbers.append(randrange(1, 100))
+    random_numbers = rnd_engine.get_attempt_numbers()
 
-    cli.greeting_user()
-    user_name = cli.welcome_user()
-    cli.instruct_user()
+    user_name = cli.greeting_user('even')
 
     for random_number in random_numbers:
-        cli.ask_question_to_user(random_number)
-        answer = cli.ask_user_answer()
+        answer = cli.ask_user(random_number)
         if is_even(random_number) != is_yes(answer):
             correct_answer = translate_bool(is_even(random_number))
             cli.make_negative_feedback(correct_answer, answer, user_name)

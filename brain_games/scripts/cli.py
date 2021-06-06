@@ -14,32 +14,25 @@ def welcome_user():
     return name
 
 
-def greeting_user():
+def greeting_user(game):
     """Greeting user."""
     print('Welcome to the Brain Games!')
+    user_name = welcome_user()
+    instruct_user(game)
+    return user_name
 
 
-def instruct_user():
-    """Instruct the user about the rules of the game."""
-    print('Answer "yes" if the number is even, otherwise answer "no".')
-
-
-def ask_user_answer():
-    """Ask user 'Your answer:'.
-
-    Returns:
-        [str]: [answer str]
-    """
-    return prompt.string('Your answer:')
-
-
-def ask_question_to_user(question):
-    """Ask a question to the user: 'Question:...'.
+def instruct_user(game):
+    """instruct user whith message.
 
     Args:
-        question ([any]): [question]
+        game (str)): type of game.
     """
-    print('Question: {0}'.format(question))
+    if game == 'even':
+        message = 'Answer "yes" if the number is even, otherwise answer "no".'
+    elif game == 'calc':
+        message = 'What is the result of the expression?'
+    print(message)
 
 
 def make_positive_feedback():
@@ -66,3 +59,16 @@ def make_congratulation(username):
         username (str): Name of the user
     """
     print('Congratulations, {0}!'.format(username))
+
+
+def ask_user(question):
+    """Asks the user a question and returns the answer.
+
+    Args:
+        question (str): question to the user
+
+    Returns:
+        [str]: answer
+    """
+    print('Question: {0}'.format(question))
+    return prompt.string('Your answer:')
