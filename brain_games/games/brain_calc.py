@@ -8,17 +8,8 @@ instruction = 'What is the result of the expression?'
 
 def main():
     """Make a prepiar to game and play."""
-    random_numbers = zip(rnd_engine.get_attempt_numbers(),
-                         rnd_engine.get_attempt_numbers())
-    random_operators = rnd_engine.get_mathematical_operations()
-    questions = []
-
-    for count, numbers in enumerate(random_numbers):
-        operator = random_operators[count]
-        questions.append('{0}{1}{2}'.format(numbers[0], operator, numbers[1]))
-    int_result = map(eval, questions)
-    correct_answers = map(str, int_result)
-
+    math_instruction = rnd_engine.get_mathematical_operations()
+    questions, correct_answers = rnd_engine.get_random_question(math_instruction)
     engine.main(questions, correct_answers, instruction)
 
 

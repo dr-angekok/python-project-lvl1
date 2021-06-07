@@ -4,6 +4,25 @@ from random import choice, randrange
 
 try_count = 3
 
+def get_random_question(instructions_list):
+    """Give a sequence of calculations based on the sequence of a function.
+
+    Args:
+        instructions_list (tuple): tuple of some function.
+
+    Returns:
+        [lists]: tuples of str questions and correct answers on it.
+    """
+    random_numbers = zip(get_attempt_numbers(),
+                         get_attempt_numbers())
+    questions = []
+    for count, numbers in enumerate(random_numbers):
+        operator = instructions_list[count]
+        questions.append('{0}{1}{2}'.format(numbers[0], operator, numbers[1]))
+    int_result = map(eval, questions)
+    correct_answers = map(str, int_result)
+    return questions, correct_answers
+
 
 def get_attempt_numbers():
     """Get random attemp numbers.
