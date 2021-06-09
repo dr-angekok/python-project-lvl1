@@ -37,14 +37,30 @@ def get_attempt_numbers():
     return random_numbers
 
 
-def get_mathematical_operations():
-    """Return a sequence of mathematical operations.
+def get_random_operations(operations):
+    """Return a sequence of random operations operations.
+
+    Args:
+        operations (iter): sequence of operation
 
     Returns:
         [list]: some random mathematical operations
+
     """
-    types_of_operations = ('+', '-', '*')
-    operations = []
+    types_of_operations = operations
+    random_operations = []
     for _ in range(try_count):
-        operations.append(choice(types_of_operations))
-    return operations
+        random_operations.append(choice(types_of_operations))
+    return random_operations
+
+
+def get_multiplication_set(value):
+    """Return a sequence of multiplication signs.
+
+    Returns:
+        [tuple]: sequence of multiplication signs
+    """
+    multiplication_set = []
+    for _ in range(try_count):
+        multiplication_set.append(value)
+    return multiplication_set
