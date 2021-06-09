@@ -3,4 +3,7 @@
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
 
 demo of the brain-even: https://asciinema.org/a/F5POew8xSu48DddkRCWwVCEwn
+
 demo of the brain-calc: https://asciinema.org/a/eW6Q4vKAxUmOiQhMzjWmVEmvR
+
+demo of the brain-gcd: https://asciinema.org/a/TShUTcUEvNH8kcoUoMcOsd6Pf 
