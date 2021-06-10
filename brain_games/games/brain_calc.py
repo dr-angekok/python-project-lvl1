@@ -1,21 +1,21 @@
-#!/usr/bin/env python
 """Calc game programm."""
 
-from brain_games.games import engine, rnd_engine
+from random import choice, randrange
 
 instruction = 'What is the result of the expression?'
 
 
-def main():
-    """Make a prepiar to game and play."""
-    attempt_set = zip(rnd_engine.get_attempt_numbers(),
-                      rnd_engine.get_attempt_numbers(),
-                      rnd_engine.get_random_operations(('+', '-', '*')))
-    questions = list(map(lambda st: '{0} {2} {1}'.format(st[0], st[1], st[2]),
-                         attempt_set))
-    correct_answers = list(map(lambda x: str(eval(x)), questions))
-    engine.main(questions, correct_answers, instruction)
+def get_round():
+    """Make a round number fo game even.
 
-
-if __name__ == '__main__':
-    main()
+    Returns:
+        [str]: random number and correct answer for game
+    """
+    range_count = 100
+    types_of_operation = choice(('+', '-', '*'))
+    attempt_set = (randrange(1, range_count), randrange(1, range_count))
+    question = '{0} {2} {1}'.format(attempt_set[0],
+                                     attempt_set[1],
+                                     types_of_operation)
+    correct_answer = str(eval(question))
+    return question, correct_answer
