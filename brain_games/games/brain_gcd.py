@@ -1,7 +1,6 @@
-#!/usr/bin/env python
 """GCD game programm."""
 
-from brain_games.games import engine, rnd_engine
+from random import randrange
 
 instruction = 'Find the greatest common divisor of given numbers.'
 
@@ -21,15 +20,14 @@ def gcd(x, y):
     return x
 
 
-def main():
-    """Make a prepiar to game and play."""
-    attempt_set = list(zip(rnd_engine.get_attempt_numbers(),
-                           rnd_engine.get_attempt_numbers()))
-    questions = map(lambda sets: '{0} {1}'.format(sets[0], sets[1]),
-                    attempt_set)
-    correct_answers = map(lambda item: str(gcd(item[0], item[1])), attempt_set)
-    engine.main(questions, correct_answers, instruction)
+def get_round():
+    """Make a round number fo game GCD.
 
-
-if __name__ == '__main__':
-    main()
+    Returns:
+        [str]: random number and correct answer for game
+    """
+    range_count = 100
+    attempt_set = (randrange(1, range_count), randrange(1, range_count))
+    question = '{0} {1}'.format(attempt_set[0], attempt_set[1])
+    correct_answer = str(gcd(attempt_set[0], attempt_set[1]))
+    return question, correct_answer
