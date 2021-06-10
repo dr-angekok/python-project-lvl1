@@ -28,4 +28,4 @@ def get_round():
             question += ' {0}'.format(item)
 
     correct_answer = str(numbers_set[missing_count])
-    return question, correct_answer
+    return question[1:], correct_answer
