@@ -1,7 +1,6 @@
-#!/usr/bin/env python
 """Even game programm."""
 
-from brain_games.games import engine, rnd_engine
+from random import randrange
 
 instruction = 'Answer "yes" if the number is even, otherwise answer "no".'
 
@@ -32,13 +31,14 @@ def translate_bool(state):
     return 'no'
 
 
-def main():
-    """Make a prepiar to game and play."""
-    random_numbers = rnd_engine.get_attempt_numbers()
-    correct_states = map(is_even, random_numbers)
-    correct_answers = map(translate_bool, correct_states)
-    engine.main(random_numbers, correct_answers, instruction)
+def get_round():
+    """Make a round number fo game even.
 
-
-if __name__ == '__main__':
-    main()
+    Returns:
+        [str]: random number and correct answer for game
+    """
+    range_count = 100
+    random_number = randrange(1, range_count)
+    correct_state = is_even(random_number)
+    correct_answer = translate_bool(correct_state)
+    return random_number, correct_answer
