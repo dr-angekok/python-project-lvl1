@@ -7,3 +7,6 @@ demo of the brain-even: https://asciinema.org/a/F5POew8xSu48DddkRCWwVCEwn
 demo of the brain-calc: https://asciinema.org/a/eW6Q4vKAxUmOiQhMzjWmVEmvR
 
 demo of the brain-gcd: https://asciinema.org/a/TShUTcUEvNH8kcoUoMcOsd6Pf 
+
+demo of the brain-progression  https://asciinema.org/a/Qfm9p4P605Ib4eC0uUvP0Bb6V
+
