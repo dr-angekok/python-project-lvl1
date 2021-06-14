@@ -1,7 +1,7 @@
 """Progression game programm."""
 from random import randrange
 
-instruction = 'What number is missing in the progression?'
+INSTRUCTION = 'What number is missing in the progression?'
 
 
 def get_round():

@@ -2,7 +2,7 @@
 
 from random import randrange
 
-instruction = 'Answer "yes" if the number is even, otherwise answer "no".'
+INSTRUCTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
 def is_even(number):

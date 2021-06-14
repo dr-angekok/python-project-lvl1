@@ -2,7 +2,7 @@
 
 from brain_games import cli
 
-try_count = 3
+TRY_COUNT = 3
 
 
 def main(game):
@@ -11,8 +11,8 @@ def main(game):
     Args:
         game (func): instruction and question
     """
-    user_name = cli.greeting_user(game.instruction)
-    for _ in range(try_count):
+    user_name = cli.greeting_user(game.INSTRUCTION)
+    for _ in range(TRY_COUNT):
         question, correct_answer = game.get_round()
         answer = cli.ask_user(question)
         if answer != correct_answer:

@@ -2,7 +2,7 @@
 
 from random import randrange
 
-instruction = 'Find the greatest common divisor of given numbers.'
+INSTRUCTION = 'Find the greatest common divisor of given numbers.'
 
 
 def gcd(x, y):

@@ -2,7 +2,7 @@
 
 from random import randrange
 
-instruction = '"yes" if given number is prime. Otherwise answer "no".'
+INSTRUCTION = '"yes" if given number is prime. Otherwise answer "no".'
 
 
 def is_prime(number):

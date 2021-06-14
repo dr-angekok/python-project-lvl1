@@ -2,7 +2,7 @@
 
 from random import choice, randrange
 
-instruction = 'What is the result of the expression?'
+INSTRUCTION = 'What is the result of the expression?'
 
 
 def get_round():
