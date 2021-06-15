@@ -17,20 +17,6 @@ def is_even(number):
     return number % 2 == 0
 
 
-def translate_bool(state):
-    """Human translator.
-
-    Args:
-        state: (bool):
-
-    Returns:
-        str: 'yes' or 'no'
-    """
-    if state:
-        return 'yes'
-    return 'no'
-
-
 def get_round():
     """Make a round number fo game even.
 
@@ -39,6 +25,5 @@ def get_round():
     """
     range_count = 100
     random_number = randrange(1, range_count)
-    correct_state = is_even(random_number)
-    correct_answer = translate_bool(correct_state)
+    correct_answer = 'yes' if is_even(random_number) else 'no'
     return random_number, correct_answer
