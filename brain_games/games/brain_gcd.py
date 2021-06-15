@@ -27,7 +27,7 @@ def get_round():
         [str]: random number and correct answer for game
     """
     range_count = 100
-    attempt_set = (randrange(1, range_count), randrange(1, range_count))
-    question = '{0} {1}'.format(attempt_set[0], attempt_set[1])
-    correct_answer = str(gcd(attempt_set[0], attempt_set[1]))
+    first, second = (randrange(1, range_count), randrange(1, range_count))
+    question = '{0} {1}'.format(first, second)
+    correct_answer = str(gcd(first, second))
     return question, correct_answer
