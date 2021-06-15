@@ -23,20 +23,6 @@ def is_prime(number):
     return divider * divider > number
 
 
-def translate_bool(state):
-    """Human translator.
-
-    Args:
-        state: (bool):
-
-    Returns:
-        str: 'yes' or 'no'
-    """
-    if state:
-        return 'yes'
-    return 'no'
-
-
 def get_round():
     """Make a round number fo game even.
 
@@ -44,6 +30,5 @@ def get_round():
         [str]: random number and correct answer for game
     """
     random_number = randrange(2, RANGE_COUNT)
-    correct_state = is_prime(random_number)
-    correct_answer = translate_bool(correct_state)
+    correct_answer = 'yes' if is_prime(random_number) else 'no'
     return random_number, correct_answer
