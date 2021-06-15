@@ -3,6 +3,7 @@
 from random import randrange
 
 INSTRUCTION = '"yes" if given number is prime. Otherwise answer "no".'
+RANGE_COUNT = 100
 
 
 def is_prime(number):
@@ -14,11 +15,12 @@ def is_prime(number):
     Returns:
         [bool]: predicate
     """
-    prime_sequence = (2, 3, 5, 7, 11, 13,
-                      17, 19, 23, 29, 31, 37,
-                      41, 43, 47, 53, 59, 61,
-                      67, 71, 73, 79, 83, 89, 97)
-    return number in prime_sequence
+    if number % 2 == 0:  # Divisibility by 2 test.
+        return number == 2  # But 2 is a prime number.
+    divider = 3  # Continue from 3.
+    while divider * divider <= number and number % divider != 0:
+        divider += 2  # We are only interested in odd numbers.
+    return divider * divider > number
 
 
 def translate_bool(state):
@@ -41,8 +43,7 @@ def get_round():
     Returns:
         [str]: random number and correct answer for game
     """
-    range_count = 100
-    random_number = randrange(1, range_count)
+    random_number = randrange(2, RANGE_COUNT)
     correct_state = is_prime(random_number)
     correct_answer = translate_bool(correct_state)
     return random_number, correct_answer
