@@ -1,6 +1,6 @@
 """Even game programm."""
 
-from random import randrange
+from random import randint
 
 INSTRUCTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
@@ -24,6 +24,6 @@ def get_round():
         [str]: random number and correct answer for game
     """
     range_count = 100
-    random_number = randrange(1, range_count)
+    random_number = randint(1, range_count)
     correct_answer = 'yes' if is_even(random_number) else 'no'
     return random_number, correct_answer

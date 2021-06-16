@@ -1,6 +1,6 @@
 """GCD game programm."""
 
-from random import randrange
+from random import randint
 
 INSTRUCTION = 'Find the greatest common divisor of given numbers.'
 
@@ -27,7 +27,8 @@ def get_round():
         [str]: random number and correct answer for game
     """
     range_count = 100
-    first, second = (randrange(1, range_count), randrange(1, range_count))
+    first = randint(1, range_count)
+    second = randint(1, range_count)
     question = '{0} {1}'.format(first, second)
     correct_answer = str(gcd(first, second))
     return question, correct_answer

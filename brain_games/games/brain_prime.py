@@ -1,6 +1,6 @@
 """Praim game programm."""
 
-from random import randrange
+from random import randint
 
 INSTRUCTION = '"yes" if given number is prime. Otherwise answer "no".'
 RANGE_COUNT = 100
@@ -29,6 +29,6 @@ def get_round():
     Returns:
         [str]: random number and correct answer for game
     """
-    random_number = randrange(2, RANGE_COUNT)
+    random_number = randint(2, RANGE_COUNT)
     correct_answer = 'yes' if is_prime(random_number) else 'no'
     return random_number, correct_answer

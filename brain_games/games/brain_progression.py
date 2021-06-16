@@ -1,5 +1,5 @@
 """Progression game programm."""
-from random import randrange
+from random import randint
 
 INSTRUCTION = 'What number is missing in the progression?'
 
@@ -46,12 +46,12 @@ def get_round():
     Returns:
         [str]: random number and correct answer for game
     """
-    range_count = randrange(5, 10)
-    step_range = randrange(1, 5)
-    start_range = randrange(1, 50)
+    range_count = randint(5, 10)
+    step_range = randint(1, 5)
+    start_range = randint(1, 50)
 
     numbers_set = generate_progression(start_range, step_range, range_count)
-    missing_count = randrange(1, len(numbers_set) - 1)
+    missing_count = randint(1, len(numbers_set) - 1)
     question = get_question(numbers_set, missing_count)
     correct_answer = str(numbers_set[missing_count])
 
