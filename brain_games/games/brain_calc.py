@@ -1,8 +1,10 @@
 """Calc game programm."""
 
+from operator import add, mul, sub
 from random import choice, randint
 
 INSTRUCTION = 'What is the result of the expression?'
+RANGE_COUNT = 100
 
 
 def get_round():
@@ -11,11 +13,14 @@ def get_round():
     Returns:
         [str]: random number and correct answer for game
     """
-    range_count = 100
     types_of_operation = choice(('+', '-', '*'))
-    attempt_set = (randint(1, range_count), randint(1, range_count))
-    question = '{0} {2} {1}'.format(attempt_set[0],
-                                    attempt_set[1],
+    first = randint(1, RANGE_COUNT)
+    second = randint(1, RANGE_COUNT)
+    question = '{0} {2} {1}'.format(first,
+                                    second,
                                     types_of_operation)
-    correct_answer = str(eval(question))
+    operation = {'+': add,
+                 '-': sub,
+                 '*': mul}
+    correct_answer = str(operation[types_of_operation](first, second))
     return question, correct_answer
