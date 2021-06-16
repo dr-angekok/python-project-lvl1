@@ -1,6 +1,6 @@
 """Engine for brain-games."""
 
-from brain_games import cli
+import prompt
 
 TRY_COUNT = 3
 
@@ -11,12 +11,18 @@ def main(game):
     Args:
         game (func): instruction and question
     """
-    user_name = cli.greeting_user(game.INSTRUCTION)
+    print('Welcome to the Brain Games!')
+    user_name = prompt.string('May I have your name? ')
+    print('Hello, {0}!'.format(user_name))
+    print(game.INSTRUCTION)
+
     for _ in range(TRY_COUNT):
         question, correct_answer = game.get_round()
-        answer = cli.ask_user(question)
+        print('Question: {0}'.format(question))
+        answer = prompt.string('Your answer:')
         if answer != correct_answer:
-            cli.make_negative_feedback(correct_answer, answer, user_name)
+            print("'{0}' is wrong answer ;(. Correct answer was '{1}'.".format(answer, correct_answer)) # noqa E501
+            print("Let's try again, {0}!".format(user_name))
             return
-        cli.make_positive_feedback()
-    cli.make_congratulation(user_name)
+        print('Correct!')
+    print('Congratulations, {0}!'.format(user_name))
