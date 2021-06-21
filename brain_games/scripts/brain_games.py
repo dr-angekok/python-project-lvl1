@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Main programm."""
 
-from brain_games.scripts import cli
+from brain_games import cli
 
 
 def main():
