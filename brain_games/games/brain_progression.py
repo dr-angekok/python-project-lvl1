@@ -4,40 +4,20 @@ from random import randint
 INSTRUCTION = 'What number is missing in the progression?'
 
 
-def generate_progression(first, diff, count):
+def generate_progression():
     """Generate a sequence of the desired length and with a given step.
 
-    Args:
-        first (int): start number
-        diff (int): step number
-        count (int): count of the steps
-
     Returns:
-        [tuple]: tuple of the progression
+        [tuple]: tuple of str with progression
     """
-    numbers_set = []
-    for number, _ in enumerate(range(0, count)):
-        numbers_set.append(first + diff * number)
-    return numbers_set
+    start = randint(1, 50)
+    finish = randint(5, 10)
+    step = randint(1, 5)
 
-
-def get_question(numbers_set, missing_count):
-    """Generate a question to the user.
-
-    Args:
-        numbers_set (itereble): tuple of numbers (int)
-        missing_count (int): Element to replace with ..
-
-    Returns:
-        [str]: question
-    """
-    question = ''
-    for number, item in enumerate(numbers_set):
-        if number == missing_count:
-            question += ' ..'
-        else:
-            question += ' {0}'.format(item)
-    return question
+    numbers = []
+    for number, _ in enumerate(range(0, finish)):
+        numbers.append(str(start + step * number))
+    return numbers
 
 
 def get_round():
@@ -46,13 +26,12 @@ def get_round():
     Returns:
         [str]: random number and correct answer for game
     """
-    range_count = randint(5, 10)
-    step_range = randint(1, 5)
-    start_range = randint(1, 50)
+    numbers = generate_progression()
+    missing_index = randint(1, len(numbers) - 2)
 
-    numbers_set = generate_progression(start_range, step_range, range_count)
-    missing_count = randint(1, len(numbers_set) - 1)
-    question = get_question(numbers_set, missing_count)
-    correct_answer = str(numbers_set[missing_count])
+    correct_answer = str(numbers[missing_index])
 
-    return question[1:], correct_answer
+    numbers[missing_index] = '..'
+    question = ' '.join(numbers)
+
+    return question, correct_answer
