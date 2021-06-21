@@ -2,7 +2,7 @@
 
 import prompt
 
-TRY_COUNT = 3
+ROUNDS_COUNT = 3
 
 
 def main(game):
@@ -16,7 +16,7 @@ def main(game):
     print('Hello, {0}!'.format(user_name))
     print(game.INSTRUCTION)
 
-    for _ in range(TRY_COUNT):
+    for _ in range(ROUNDS_COUNT):
         question, correct_answer = game.get_round()
         print('Question: {0}'.format(question))
         answer = prompt.string('Your answer:')
