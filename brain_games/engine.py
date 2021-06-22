@@ -5,7 +5,7 @@ import prompt
 ROUNDS_COUNT = 3
 
 
-def main(game):
+def run(game):
     """Games engine.
 
     Args:
